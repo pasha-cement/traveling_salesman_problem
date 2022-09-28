@@ -1,14 +1,11 @@
-//
-//  main.cpp
-//  traveling_salesman_problem
-//
-//  Created by Павел on 27.09.2022.
-//
-
 #include <iostream>
+#include "tsptabusolver.hpp"
+using namespace std;
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
+
+int main(int argc, char* argv[]){
+
+    TSPTabuSolver solver2("tsp0.txt");
+    solver2.solve(6);
     return 0;
 }
