@@ -34,9 +34,6 @@ void TSPTabuSolver::resetTabuList(){
     }
 }
 
-/*
-    numCandidate : times that solver run to get the best score
-*/
 void TSPTabuSolver::solve(int numCandidate){
     Solution bestSolution(map);
     double bestSolutionScore = bestSolution.getScore();
@@ -44,7 +41,6 @@ void TSPTabuSolver::solve(int numCandidate){
     for(int loopCount = 0; loopCount < numCandidate; loopCount++){
         s->initSolution();
         resetTabuList();
-        //cout << "Init Score : " << s->getScore() << endl;
         int countTime = 0;
         bestSolverScore = std::numeric_limits<double>::max();
         for(int i = 0; i < NUM_INTERATION; i++){
@@ -69,7 +65,7 @@ void TSPTabuSolver::solve(int numCandidate){
         }
 
     }
-    cout << "Best score : " << bestSolutionScore << endl;
+    cout << bestSolutionScore << endl;
     bestSolution.printPath();
 }
 
@@ -79,7 +75,6 @@ Solution* TSPTabuSolver::getBestNearbySolution(int it){
     int vertexB = 1;
     for(int i = 0; i < map->numVertex; i++){
         for(int j = (i+1); j < map->numVertex; j++){
-            //swap for new solution
             s->swapSolve(i,j);
             double currentScore = s->getScore();
             double penalScore = currentScore + PENAL_LONG_TERM * tabu_f_list[i][j];
@@ -90,7 +85,6 @@ Solution* TSPTabuSolver::getBestNearbySolution(int it){
                 this->tabu_list[i][j] = (it + TABU_LENGTH);
                 this->tabu_list[j][i] = (it + TABU_LENGTH);
             }
-            // back to orginal solution
             s->swapSolve(j,i);
             if(tabu_f_list[i][j] > 0 && it > LONG_TERM_LENGTH) tabu_f_list[i][j] -= 1;
         }

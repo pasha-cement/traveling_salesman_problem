@@ -32,11 +32,6 @@ void Solution::computeScore(){
 }
 
 void Solution::printPath(){
-    cout << "Duong di : ";
-    for(int i = 0; i < map->numVertex; i++){
-        cout << this->v[i] << " ";
-    }
-    cout << endl;
 }
 
 int Solution::getV(int key){
