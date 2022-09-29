@@ -44,7 +44,7 @@ regex pattern("^(\\d+) (\\d+) (\\d+)$");
 double distanceBetween(node &a, node &b) {
     int x = a.x - b.x;
     int y = a.y - b.y;
-    return ceil(sqrt((x * x + y * y) / 10.0));
+    return sqrt(x * x + y * y);
 }
 
 
