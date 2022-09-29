@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <ctime>
 #include <queue>
+#include <random>
 
 using namespace std;
 
@@ -63,7 +64,7 @@ bool cmp(const solution &a, const solution &b) {
 
 
 void initData() {
-    ifstream f("/Users/pavel/Desktop/Miller-Tucker-Zemlin/att48", ios::in);
+    ifstream f("/Users/pavel/Desktop/tsp_783_1", ios::in);
 
 
     if (!f) {
@@ -95,10 +96,12 @@ void initData() {
 }
 
 void initPack(int gen) {
+    auto rd = random_device{};
+    auto rng = default_random_engine {rd()};
     for (int i = 0; i < packNum; i++) {
         solution temp;
         temp.path.push_back(start);
-        //random_shuffle(num.begin(), num.end());
+        shuffle(num.begin(), num.end(), rng);
         for (auto it = num.begin(); it != num.end(); it++) {
             temp.path.push_back(*it);
         }
