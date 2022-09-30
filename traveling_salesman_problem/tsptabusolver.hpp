@@ -1,5 +1,5 @@
-#ifndef TSP_TABU_SOLVER_H
-#define TSP_TABU_SOLVER_H
+#ifndef TSP_TABU_SOLVER_HPP
+#define TSP_TABU_SOLVER_HPP
 
 #include "map.hpp"
 #include "solution.hpp"
