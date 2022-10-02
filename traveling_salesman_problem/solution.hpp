@@ -1,3 +1,8 @@
+//
+//  traveling_salesman_problem
+//
+//  Created by Павел
+//
 #ifndef SOLUTION_HPP
 #define SOLUTION_HPP
 #include "map.hpp"
